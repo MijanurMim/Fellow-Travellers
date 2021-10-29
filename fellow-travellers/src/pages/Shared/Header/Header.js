@@ -14,6 +14,7 @@ const Header = () => {
       <Link to="/reviews">Reviews</Link>
       <Link to="/myBookings">My Bookings</Link>
       <Link to="/totalBookings">Total Bookings</Link>
+      <Link to="/admin">Admin</Link>
 
       {/* Login / Logout area  */}
       <Typography>{user?.email}</Typography>

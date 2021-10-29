@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthProvider";
+import AddPackages from "./pages/AddPackages/AddPackages";
+import AdminDashboard from "./pages/Admin/AdminDashboard/AdminDashboard";
 import Home from "./pages/Home/Home/Home";
 import Reviews from "./pages/Home/Reviews/Reviews";
 import Login from "./pages/Login/Login/Login";
@@ -29,21 +31,28 @@ function App() {
             <Route exact path="/services">
               <Services></Services>
             </Route>
-            <PrivateRoute exact path="/packages">
+            <Route exact path="/packages">
               <Packages></Packages>
-            </PrivateRoute>
+            </Route>
+            <Route exact path="/addPackages">
+              <AddPackages></AddPackages>
+            </Route>
             <Route exact path="/reviews">
               <Reviews></Reviews>
             </Route>
-            <Route exact path="/myBookings">
+            <PrivateRoute exact path="/myBookings">
               <MyBookings></MyBookings>
-            </Route>
-            <Route exact path="/totalBookings">
+            </PrivateRoute>
+            <PrivateRoute exact path="/totalBookings">
               <TotalBookings></TotalBookings>
+            </PrivateRoute>
+            <Route exact path="/admin">
+              <AdminDashboard></AdminDashboard>
             </Route>
             <Route exact path="/login">
               <Login></Login>
             </Route>
+
             <Route exact path="*">
               <NotFound></NotFound>
             </Route>

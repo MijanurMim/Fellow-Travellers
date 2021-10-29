@@ -1,12 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
-const AddPackages = () => {
-  // const { user } = useFirebase();
-
+const AddServices = () => {
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addEvent", {
+    fetch("http://localhost:5000/addServices", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -14,9 +12,10 @@ const AddPackages = () => {
       .then((res) => res.json())
       .then((result) => console.log(result));
   };
+
   return (
     <div>
-      <h1>Add New Packages</h1>
+      <h1>Add New Services</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("title", { required: true })} placeholder="Title" />
 
@@ -42,4 +41,4 @@ const AddPackages = () => {
   );
 };
 
-export default AddPackages;
+export default AddServices;

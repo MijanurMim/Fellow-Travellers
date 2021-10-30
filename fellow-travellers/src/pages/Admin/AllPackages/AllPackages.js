@@ -23,6 +23,7 @@ const AllPackages = () => {
         console.log(data);
         if (data.deletedCount) {
           alert("Deleted");
+
           setControl(!control);
         } else {
           setControl(false);

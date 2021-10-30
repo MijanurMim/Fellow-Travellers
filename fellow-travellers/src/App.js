@@ -12,8 +12,6 @@ import MyBookings from "./pages/MyBookings/MyBookings";
 import NotFound from "./pages/NotFound/NotFound";
 import PackageDetails from "./pages/Packages/PackageDetails/PackageDetails";
 import Packages from "./pages/Packages/Packages/Packages";
-import AddServices from "./pages/Services/AddServices/AddServices";
-import Services from "./pages/Services/Services/Services";
 import Footer from "./pages/Shared/Footer/Footer";
 import Header from "./pages/Shared/Header/Header";
 import TotalBookings from "./pages/TotalBookings/TotalBookings";
@@ -31,9 +29,7 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route exact path="/services">
-              <Services></Services>
-            </Route>
+
             <Route exact path="/packages">
               <Packages></Packages>
             </Route>
@@ -46,9 +42,7 @@ function App() {
             <Route exact path="/reviews">
               <Reviews></Reviews>
             </Route>
-            <Route exact path="/addServices">
-              <AddServices></AddServices>
-            </Route>
+
             <Route exact path="/addMember">
               <AddMember></AddMember>
             </Route>

@@ -16,11 +16,13 @@ const AllPackages = () => {
     fetch(`http://localhost:5000/deletePackage/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
+      //   delete will not send any data thats why it does not have body  method
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.deletedCount) {
+          alert("Deleted");
           setControl(!control);
         } else {
           setControl(false);

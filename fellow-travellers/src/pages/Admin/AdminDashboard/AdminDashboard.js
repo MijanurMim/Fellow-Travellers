@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddPackages from "../../AddPackages/AddPackages";
 import AllMembers from "../AllMembers/AllMembers";
 import AllPackages from "../AllPackages/AllPackages";
 import AllServices from "../AllServices/AllServices";
@@ -20,6 +21,9 @@ const AdminDashboard = () => {
         {control === "allMembers" && <AllMembers></AllMembers>}
         {control === "allPackages" && <AllPackages></AllPackages>}
         {control === "allServices" && <AllServices></AllServices>}
+      </div>
+      <div>
+        <AddPackages></AddPackages>
       </div>
     </div>
   );

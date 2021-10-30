@@ -1,11 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import useFirebase from "../../hooks/useFirebase";
 
 const AddPackages = () => {
-  // const { user } = useFirebase();
+  const { user } = useFirebase();
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    data.email = user?.email;
     fetch("http://localhost:5000/addEvent", {
       method: "POST",
       headers: { "content-type": "application/json" },

@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login/Login";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import MyBookings from "./pages/MyBookings/MyBookings";
 import NotFound from "./pages/NotFound/NotFound";
+import PackageDetails from "./pages/Packages/PackageDetails/PackageDetails";
 import Packages from "./pages/Packages/Packages/Packages";
 import AddServices from "./pages/Services/AddServices/AddServices";
 import Services from "./pages/Services/Services/Services";
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route exact path="/addPackages">
               <AddPackages></AddPackages>
+            </Route>
+            <Route exact path="/packageDetails/:packageId">
+              <PackageDetails></PackageDetails>
             </Route>
             <Route exact path="/reviews">
               <Reviews></Reviews>

@@ -8,6 +8,7 @@ const AddPackages = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     data.email = user?.email;
+    data.status = "Pending";
     fetch("http://localhost:5000/addEvent", {
       method: "POST",
       headers: { "content-type": "application/json" },

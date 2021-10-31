@@ -12,9 +12,7 @@ const AdminDashboard = () => {
       {/* this line is for side space of the page  */}
       <Grid item xs={false} md={1}></Grid>
       <Grid item xs={12} md={2} className="dashboard">
-        <Typography variant="h2" color="primary">
-          Dashboard
-        </Typography>
+        <Typography variant="h2">Dashboard</Typography>
         <div className="route">
           <li onClick={() => setControl("allMembers")}>All Members</li>
 

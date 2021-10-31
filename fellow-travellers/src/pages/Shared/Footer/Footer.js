@@ -5,7 +5,7 @@ import React from "react";
 const useStyles = makeStyles((theme) => ({
   footer: {
     marginTop: "400px",
-    backgroundColor: "#00695c",
+    backgroundColor: "#456360",
     color: "white",
     position: "sticky",
     top: "100%",
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "40px",
   },
   bottomFooter: {
-    backgroundColor: "#004d40",
+    backgroundColor: "#2c3b3a",
 
     color: "white",
     marginTop: "20px",

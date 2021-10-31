@@ -10,3 +10,8 @@
   border: 1px solid #e3e3e4;
   box-shadow: 0 0 10px #c5d7e9;
 }
+.searchResult {
+  display: flex;
+  width: 60%;
+  /* border: 1px solid salmon; */
+}

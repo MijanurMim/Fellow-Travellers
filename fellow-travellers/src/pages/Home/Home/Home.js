@@ -1,8 +1,9 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, Typography } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import React, { useState } from "react";
 import Packages from "../../Packages/Packages/Packages";
 import Banner from "../Banner/Banner";
+import SearchResult from "../SearchResult/SearchResult";
 import WhyUs from "../WhyUs/WhyUs";
 import "./Home.css";
 
@@ -22,7 +23,9 @@ const Home = () => {
 
   return (
     <div>
+      {/* Banner area  */}
       <Banner />
+      {/* search area  */}
       <div>
         <input
           className="search"
@@ -34,20 +37,28 @@ const Home = () => {
           <SearchIcon />
         </Button>
       </div>
-      <div>
-        {packages?.map((pd) => (
-          <div key={pd._id}>
-            <img src={pd.img} alt="" />
-            <Typography variant="h4">
-              {pd.title}
-              {pd.date}
-              {pd.packageType}
-            </Typography>
-          </div>
-        ))}
-      </div>
-      <Packages></Packages>
+      {/* search result */}
+      <Grid item container xs={12} spacing={2}>
+        {/* this line is for side space of the page  */}
+        <Grid item xs={false} md={1}></Grid>
+        <Grid
+          item
+          container
+          xs={false}
+          md={10}
+          justifyContent="space-evenly"
+          sx={{ my: "40px" }}
+        >
+          {packages?.map((pd) => (
+            <SearchResult key={pd._id} pd={pd}></SearchResult>
+          ))}
+        </Grid>
 
+        {/* this line is for side space of the page  */}
+        <Grid item xs={false} md={1}></Grid>
+      </Grid>
+      {/* Home packages  */}
+      <Packages></Packages>
       <WhyUs />
     </div>
   );

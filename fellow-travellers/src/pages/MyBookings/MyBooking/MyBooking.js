@@ -9,7 +9,7 @@ import * as React from "react";
 import "./MyBookings.css";
 
 const MyBooking = ({ pd, handleUpdate, handleDelete }) => {
-  const { title, date, status, email } = pd;
+  const { title, date, status, email, cost } = pd;
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 300 }} aria-label="simple table">
@@ -33,6 +33,7 @@ const MyBooking = ({ pd, handleUpdate, handleDelete }) => {
             </TableCell>
             <TableCell align="right">{email}</TableCell>
             <TableCell align="right">{date}</TableCell>
+            <TableCell align="right">{cost}</TableCell>
             <TableCell align="right">{status}</TableCell>
             <TableCell align="right">
               <Button onClick={() => handleUpdate(pd._id)} variant="contained">

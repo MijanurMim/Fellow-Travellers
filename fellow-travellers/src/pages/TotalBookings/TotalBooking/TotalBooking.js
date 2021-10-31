@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import React from "react";
 
 const TotalBooking = ({ pd, handleUpdate, handleDelete }) => {
-  const { title, date, status, email } = pd;
+  const { title, date, status, email, cost } = pd;
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 300 }} aria-label="simple table">
@@ -32,6 +32,7 @@ const TotalBooking = ({ pd, handleUpdate, handleDelete }) => {
             </TableCell>
             <TableCell align="right">{email}</TableCell>
             <TableCell align="right">{date}</TableCell>
+            <TableCell align="right">{cost}</TableCell>
             <TableCell align="right">{status}</TableCell>
             <TableCell align="right">
               <Button onClick={() => handleUpdate(pd._id)} variant="contained">

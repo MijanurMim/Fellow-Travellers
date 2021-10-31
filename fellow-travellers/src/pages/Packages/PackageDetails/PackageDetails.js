@@ -2,7 +2,6 @@ import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 
 const PackageDetails = () => {
@@ -12,7 +11,7 @@ const PackageDetails = () => {
   const onSubmit = (data) => {
     data.email = user?.email;
     data.status = "Pending";
-    fetch("http://localhost:5000/addEvent", {
+    fetch("http://localhost:5000/addNewBooking", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -64,9 +63,7 @@ const PackageDetails = () => {
             />
           )}
 
-          <Link to="/myBookings">
-            <Button type="submit">Submit</Button>
-          </Link>
+          <Button type="submit">Submit</Button>
         </form>
       </div>
     </div>

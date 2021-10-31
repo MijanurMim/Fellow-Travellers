@@ -99,6 +99,9 @@ const PackageDetails = () => {
             <Typography variant="body2" color="text.secondary">
               {packageDetail.description} {packageDetail.date}
             </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {packageDetail.cost}
+            </Typography>
           </Card>
         </Grid>
       </Grid>

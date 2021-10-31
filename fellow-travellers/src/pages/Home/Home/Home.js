@@ -1,9 +1,10 @@
+import SearchIcon from "@mui/icons-material/Search";
 import { Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Packages from "../../Packages/Packages/Packages";
 import Banner from "../Banner/Banner";
-import HomeServices from "../HomeServices/HomeServices";
 import WhyUs from "../WhyUs/WhyUs";
+import "./Home.css";
 
 const Home = () => {
   const [packages, setPackages] = useState([]);
@@ -23,8 +24,15 @@ const Home = () => {
     <div>
       <Banner />
       <div>
-        <input onChange={handleInput} type="text" />
-        <Button onClick={handleSearch}>Search</Button>
+        <input
+          className="search"
+          onChange={handleInput}
+          type="text"
+          placeholder="Search Your Desired Destination"
+        />
+        <Button onClick={handleSearch}>
+          <SearchIcon />
+        </Button>
       </div>
       <div>
         {packages?.map((pd) => (
@@ -38,11 +46,9 @@ const Home = () => {
           </div>
         ))}
       </div>
-
-      <HomeServices></HomeServices>
-      <WhyUs />
-
       <Packages></Packages>
+
+      <WhyUs />
     </div>
   );
 };

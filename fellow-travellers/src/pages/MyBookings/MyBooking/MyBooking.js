@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import * as React from "react";
 import "./MyBookings.css";
 
-const MyBooking = ({ pd, handleUpdate }) => {
+const MyBooking = ({ pd, handleUpdate, handleDelete }) => {
   const { title, date, status, email } = pd;
   return (
     <TableContainer component={Paper} className="table">
@@ -37,6 +37,9 @@ const MyBooking = ({ pd, handleUpdate }) => {
             <TableCell align="right">
               <Button onClick={() => handleUpdate(pd._id)} variant="contained">
                 Confirm
+              </Button>
+              <Button onClick={() => handleDelete(pd._id)} variant="contained">
+                Delete
               </Button>
             </TableCell>
           </TableRow>

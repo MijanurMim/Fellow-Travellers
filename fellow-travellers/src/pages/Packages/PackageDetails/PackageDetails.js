@@ -133,7 +133,7 @@ const PackageDetails = () => {
           <br />
 
           <Button type="submit" variant="contained" className="button">
-            Submit
+            Confirm Tour
           </Button>
         </form>
       </Grid>

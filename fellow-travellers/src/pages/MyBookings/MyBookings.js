@@ -29,8 +29,28 @@ const MyBookings = () => {
       .then((data) => setMyPackagesDetails(data));
   }, [user.email]);
 
-  // handle update
+  // Handle Delete
+  const handleDelete = (id) => {
+    console.log(id);
+    fetch(`http://localhost:5000/deleteBooking/${id}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      //   delete will not send any data thats why it does not have body  method
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount) {
+          alert("Deleted");
 
+          setControl(!control);
+        } else {
+          setControl(false);
+        }
+      });
+  };
+
+  // handle update
   const handleUpdate = (id) => {
     fetch(`http://localhost:5000/updateStatus/${id}`, {
       method: "PUT",
@@ -57,7 +77,12 @@ const MyBookings = () => {
         My Bookings:{myPackages.length}{" "}
       </Typography>
       {myPackagesDetails.map((pd) => (
-        <MyBooking key={pd._id} pd={pd} handleUpdate={handleUpdate}></MyBooking>
+        <MyBooking
+          key={pd._id}
+          pd={pd}
+          handleUpdate={handleUpdate}
+          handleDelete={handleDelete}
+        ></MyBooking>
       ))}
     </div>
   );

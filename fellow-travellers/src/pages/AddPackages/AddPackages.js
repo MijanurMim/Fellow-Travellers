@@ -42,7 +42,7 @@ const AddPackages = () => {
           className="inputField"
         />
         <input
-          {...register("number", { required: true })}
+          {...register("cost", { required: true })}
           type="number"
           placeholder="Cost"
           className="inputField"

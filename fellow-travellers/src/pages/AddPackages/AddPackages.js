@@ -8,15 +8,21 @@ const AddPackages = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    data.email = user?.email;
-    data.status = "Pending";
-    fetch("https://wicked-spider-07465.herokuapp.com/addEvent", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result));
+    const proceed = window.confirm(
+      "Are You Sure You Want To Add a New Package ? ?"
+    );
+    if (proceed) {
+      alert("New Package Added");
+      data.email = user?.email;
+      data.status = "Pending";
+      fetch("https://wicked-spider-07465.herokuapp.com/addEvent", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => console.log(result));
+    }
   };
   return (
     <Container sx={{ mt: "165px" }} className="packageDetailForm">

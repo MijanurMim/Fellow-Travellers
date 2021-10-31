@@ -7,16 +7,23 @@ const AddMember = () => {
   const { user } = useFirebase();
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    data.status = user?.email;
 
-    fetch("https://wicked-spider-07465.herokuapp.com/addMember", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result));
+  const onSubmit = (data) => {
+    const proceed = window.confirm(
+      "Are You Sure You Want To Add a New Member ?"
+    );
+    if (proceed) {
+      alert("New Member Added");
+      data.status = user?.email;
+
+      fetch("https://wicked-spider-07465.herokuapp.com/addMember", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => console.log(result));
+    }
   };
   return (
     <Container sx={{ mt: "100px" }} className="packageDetailForm">

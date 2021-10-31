@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useFirebase from "../../hooks/useFirebase";
 import MyBooking from "./MyBooking/MyBooking";
@@ -52,7 +53,9 @@ const MyBookings = () => {
 
   return (
     <div>
-      <h1>This is my Bookings:{myPackages.length} </h1>
+      <Typography variant="h2" sx={{ mt: "100px" }} color="primary">
+        My Bookings:{myPackages.length}{" "}
+      </Typography>
       {myPackagesDetails.map((pd) => (
         <MyBooking key={pd._id} pd={pd} handleUpdate={handleUpdate}></MyBooking>
       ))}

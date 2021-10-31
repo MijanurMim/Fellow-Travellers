@@ -1,27 +1,25 @@
-import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
-import * as React from "react";
-import "./MyBookings.css";
+import React from "react";
 
-const MyBooking = ({ pd, handleUpdate }) => {
+const TotalBooking = ({ pd }) => {
   const { title, date, status, email } = pd;
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 300 }} aria-label="simple table">
         {/* <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Date</TableCell>
-            <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Action</TableCell>
-          </TableRow>
-        </TableHead> */}
+      <TableRow>
+        <TableCell>Title</TableCell>
+        <TableCell align="right">Email</TableCell>
+        <TableCell align="right">Date</TableCell>
+        <TableCell align="right">Status</TableCell>
+        <TableCell align="right">Action</TableCell>
+      </TableRow>
+    </TableHead> */}
         <TableBody>
           <TableRow
             key={title}
@@ -34,11 +32,7 @@ const MyBooking = ({ pd, handleUpdate }) => {
             <TableCell align="right">{email}</TableCell>
             <TableCell align="right">{date}</TableCell>
             <TableCell align="right">{status}</TableCell>
-            <TableCell align="right">
-              <Button onClick={() => handleUpdate(pd._id)} variant="contained">
-                Confirm
-              </Button>
-            </TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -46,4 +40,4 @@ const MyBooking = ({ pd, handleUpdate }) => {
   );
 };
 
-export default MyBooking;
+export default TotalBooking;

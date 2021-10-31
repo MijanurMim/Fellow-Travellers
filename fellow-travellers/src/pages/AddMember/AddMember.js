@@ -1,3 +1,4 @@
+import { Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useFirebase from "../../hooks/useFirebase";
@@ -18,37 +19,53 @@ const AddMember = () => {
       .then((result) => console.log(result));
   };
   return (
-    <div>
-      <h1>Add New Members</h1>
-      <h1>Add New Packages</h1>
+    <Container sx={{ mt: "100px" }} className="packageDetailForm">
+      <Typography variant="h3" color="primary">
+        Add New Member
+      </Typography>
+
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          {...register("name", { required: true })}
-          placeholder={user?.displayName}
-        />
-        <input
-          {...register("email", { required: true })}
-          type="email"
-          placeholder={user?.email}
-        />
+        {user?.displayName && (
+          <input
+            {...register("name", { required: true })}
+            defaultValue={user?.displayName}
+            className="inputField"
+          />
+        )}
+        {user?.email && (
+          <input
+            {...register("email", { required: true })}
+            type="email"
+            defaultValue={user?.email}
+            className="inputField"
+          />
+        )}
 
-        <input
-          {...register("date", { required: true })}
-          defaultValue={new Date()}
-        />
-
-        <input
-          {...register("description", { required: true })}
-          placeholder="Short Description"
-        />
+        {new Date() && (
+          <input
+            {...register("date", { required: true })}
+            defaultValue={new Date()}
+            className="inputField"
+          />
+        )}
+        {
+          <input
+            {...register("description", { required: true })}
+            placeholder="Short Description"
+            className="inputField"
+          />
+        }
         <input
           {...register("image", { required: true })}
           placeholder="Image Link (Ex: Freepik) "
+          className="inputField"
         />
 
-        <input type="submit" />
+        <Button type="submit" variant="contained" className="button">
+          Submit
+        </Button>
       </form>
-    </div>
+    </Container>
   );
 };
 

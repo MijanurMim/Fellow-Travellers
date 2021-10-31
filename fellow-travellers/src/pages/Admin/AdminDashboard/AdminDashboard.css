@@ -1,0 +1,9 @@
+.dashboard {
+  background-color: #cfd8dc;
+  height: 100vh;
+}
+.route li {
+  cursor: pointer;
+  list-style: none;
+  color: #78909c;
+}

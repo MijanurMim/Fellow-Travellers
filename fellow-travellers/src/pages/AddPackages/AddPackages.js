@@ -1,3 +1,4 @@
+import { Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useFirebase from "../../hooks/useFirebase";
@@ -18,30 +19,49 @@ const AddPackages = () => {
       .then((result) => console.log(result));
   };
   return (
-    <div>
-      <h1>Add New Packages</h1>
+    <Container sx={{ mt: "165px" }} className="packageDetailForm">
+      <Typography variant="h3" color="primary">
+        Add New Package
+      </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("title", { required: true })} placeholder="Title" />
+        <input
+          {...register("title", { required: true })}
+          placeholder="Title"
+          className="inputField"
+        />
 
-        <input {...register("date", { required: true })} type="date" />
+        <input
+          {...register("date", { required: true })}
+          type="date"
+          className="inputField"
+        />
         <input
           {...register("description", { required: true })}
           type="textarea"
           placeholder="Description"
+          className="inputField"
         />
         <input
           {...register("image", { required: true })}
           placeholder="Image Link (Ex: Freepik) "
+          className="inputField"
         />
-        <select {...register("packageType", { required: true })} type="date">
+        <br />
+        <select
+          {...register("packageType", { required: true })}
+          type="date"
+          className="inputField"
+        >
           <option value="single">Single</option>
           <option value="couple">Couple</option>
           <option value="family">Family</option>
         </select>
-
-        <input type="submit" />
+        <br />
+        <Button type="submit" variant="contained" className="button">
+          Submit
+        </Button>
       </form>
-    </div>
+    </Container>
   );
 };
 

@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import AllPackage from "./AllPackage/AllPackage";
 
 const AllPackages = () => {
   const [packages, setPackages] = useState([]);
@@ -33,27 +34,16 @@ const AllPackages = () => {
 
   return (
     <div>
-      <table className="table-auto">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Views</th>
-          </tr>
-        </thead>
-        {packages?.map((pd, index) => (
-          <tbody key={index}>
-            <tr className="bg-emerald-200">
-              <td>{pd.title}</td>
-              <td>{pd.date}</td>
-              <td>{pd.description}</td>
-              <td>
-                <Button onClick={() => handleDelete(pd._id)}>Delete</Button>
-              </td>
-            </tr>
-          </tbody>
-        ))}
-      </table>
+      <Typography variant="h2" sx={{ mt: "100px" }} color="primary">
+        Total Packages:{packages.length}{" "}
+      </Typography>
+      {packages.map((pd) => (
+        <AllPackage
+          key={pd._id}
+          pd={pd}
+          handleDelete={handleDelete}
+        ></AllPackage>
+      ))}
     </div>
   );
 };

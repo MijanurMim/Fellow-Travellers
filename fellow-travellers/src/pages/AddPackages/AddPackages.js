@@ -10,7 +10,7 @@ const AddPackages = () => {
   const onSubmit = (data) => {
     data.email = user?.email;
     data.status = "Pending";
-    fetch("http://localhost:5000/addEvent", {
+    fetch("https://wicked-spider-07465.herokuapp.com/addEvent", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

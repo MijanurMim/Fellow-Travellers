@@ -40,22 +40,30 @@ const PackageDetails = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    data.email = user?.email;
-    data.status = "Pending";
-    fetch("http://localhost:5000/addNewBooking", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result));
+    const proceed = window.confirm(
+      "Are you Sure You Want to Confirm The Tour ?"
+    );
+    if (proceed) {
+      alert("Tour Confirmed Check My Bookings");
+      data.email = user?.email;
+      data.status = "Pending";
+      fetch("https://wicked-spider-07465.herokuapp.com/addNewBooking", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => console.log(result));
+    }
   };
 
   // ------------------
   const { packageId } = useParams();
   const [packageDetail, setPackageDetail] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/packageDetails/${packageId}`)
+    fetch(
+      `https://wicked-spider-07465.herokuapp.com/packageDetails/${packageId}`
+    )
       .then((res) => res.json())
       .then((data) => setPackageDetail(data));
   });

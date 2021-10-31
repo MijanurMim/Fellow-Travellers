@@ -1,6 +1,4 @@
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import LoginIcon from "@mui/icons-material/Login";
-import LogoutIcon from "@mui/icons-material/Logout";
 import { AppBar, Button, Grid, Toolbar, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
@@ -97,12 +95,12 @@ const Header = () => {
                 {/* login button and logout  */}
                 {user?.email ? (
                   <Button onClick={logOut} variant="contained" sx={{ mx: 2 }}>
-                    <LogoutIcon></LogoutIcon>
+                    logout
                   </Button>
                 ) : (
-                  <Link to="/login">
+                  <Link to="/login" className={classes.link}>
                     <Button variant="contained" sx={{ mx: 2 }}>
-                      <LoginIcon></LoginIcon>
+                      login
                     </Button>
                   </Link>
                 )}

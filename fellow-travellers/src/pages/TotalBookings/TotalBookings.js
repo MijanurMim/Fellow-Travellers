@@ -7,7 +7,7 @@ const TotalBookings = () => {
   // const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allBookings")
+    fetch("https://wicked-spider-07465.herokuapp.com/allBookings")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);

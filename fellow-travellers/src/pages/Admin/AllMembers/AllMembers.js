@@ -5,7 +5,7 @@ import AllMember from "./AllMember/AllMember";
 const AllMembers = () => {
   const [members, setMembers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allMembers")
+    fetch("https://wicked-spider-07465.herokuapp.com/allMembers")
       .then((res) => res.json())
       .then((data) => setMembers(data));
   }, []);

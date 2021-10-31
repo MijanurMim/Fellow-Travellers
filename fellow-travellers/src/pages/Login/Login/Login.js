@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import React from "react";
 import { useHistory, useLocation } from "react-router";
 import useAuth from "../../../hooks/useAuth";
@@ -21,7 +21,9 @@ const Login = () => {
   };
   return (
     <div>
-      <h1>This is login</h1>
+      <Typography variant="h1" color="primary">
+        Login
+      </Typography>
       <Button onClick={handleGoogleLogIn} variant="contained">
         Sign in with Google ?
       </Button>

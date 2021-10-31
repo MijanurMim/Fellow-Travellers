@@ -10,7 +10,7 @@ const AddMember = () => {
   const onSubmit = (data) => {
     data.status = user?.email;
 
-    fetch("http://localhost:5000/addMember", {
+    fetch("https://wicked-spider-07465.herokuapp.com/addMember", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

@@ -7,28 +7,34 @@ const Packages = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allPackages")
+    fetch("https://wicked-spider-07465.herokuapp.com/allPackages")
       .then((res) => res.json())
       .then((data) => setPackages(data));
   }, [control]);
 
   const handleDelete = (id) => {
-    console.log(id);
-    fetch(`http://localhost:5000/deletePackage/${id}`, {
-      method: "DELETE",
-      headers: { "content-type": "application/json" },
-      //   delete will not send any data thats why it does not have body  method
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount) {
-          alert("Deleted");
-          setControl(!control);
-        } else {
-          setControl(false);
-        }
-      });
+    const proceed = window.confirm("Are You Sure You Want to Delete ? ");
+    if (proceed) {
+      fetch(`https://wicked-spider-07465.herokuapp.com/deletePackage/${id}`, {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+        //   delete will not send any data thats why it does not have body  method
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("Deleted");
+
+            const remaining = packages.filter((pd) => pd._id !== id);
+            setPackages(remaining);
+
+            setControl(!control);
+          } else {
+            setControl(false);
+          }
+        });
+    }
   };
 
   return (

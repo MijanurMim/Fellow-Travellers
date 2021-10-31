@@ -1,34 +1,41 @@
-import { Button, Grid, Typography } from "@mui/material";
+import ShareIcon from "@mui/icons-material/Share";
+import {
+  Avatar,
+  Button,
+  CardActionArea,
+  CardHeader,
+  Grid,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { makeStyles } from "@mui/styles";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
 import useFirebase from "../../../hooks/useFirebase";
 import "./PackageDetails.css";
-// / custom css
-// const useStyles = makeStyles((theme) => ({
-//   card: {
-//     [theme.breakpoints.down("xs")]: {
-//       width: "300px",
-//     },
-//   },
-//   formMain: {
-//     margin: "100px",
-//   },
-//   formInput: {
-//     display: "block",
-//     marginTop: "30px",
-//     padding: "5px",
-//     borderRadius: "5px",
-//     width: "300px",
-//   },
-//   buttonText: {
-//     textDecoration: "none",
-//   },
-// }));
+const useStyles = makeStyles((theme) => ({
+  card: {
+    height: "600px",
+    [theme.breakpoints.down("md")]: {
+      width: "300px",
+    },
+  },
+  cardButton: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  buttonText: {
+    textDecoration: "none",
+  },
+}));
 
 const PackageDetails = () => {
   // custom css classes
-  // const classes = useStyles();
+  const classes = useStyles();
   const { user } = useFirebase();
 
   const { register, handleSubmit } = useForm();
@@ -53,23 +60,46 @@ const PackageDetails = () => {
       .then((data) => setPackageDetail(data));
   });
   return (
-    <Grid container sx={{ mt: "200px" }}>
+    <Grid container sx={{ mt: "200px" }} className="itemSpacing">
       {/* this line is for side space of the page  */}
       <Grid item xs={false} md={1}></Grid>
 
-      <Grid item xs={12} md={5}>
+      <Grid item xs={12} md={4}>
         {/* Selected Package Info  */}
         <Grid item>
-          <Typography variant="h3">
-            Details of: {packageDetail.title}
-          </Typography>
-          <h4>Date Of : {packageDetail.date}</h4>
+          <Card className={classes.card}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" src={packageDetail.image}></Avatar>
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <ShareIcon></ShareIcon>
+                </IconButton>
+              }
+              title={packageDetail.title}
+            />
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="400px"
+                image={packageDetail.image}
+                alt="green iguana"
+              />
+              <CardContent></CardContent>
+            </CardActionArea>
+            <Typography variant="body2" color="text.secondary">
+              {packageDetail.description} {packageDetail.date}
+            </Typography>
+          </Card>
         </Grid>
       </Grid>
 
       {/* form area  */}
-      <Grid item xs={12} md={5} className="packageDetailForm">
-        <Typography variant="h4">Package Details</Typography>
+      <Grid item xs={12} md={4} className="packageDetailForm">
+        <Typography variant="h4" color="primary">
+          Package Details
+        </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
           {packageDetail.title && (
             <input
@@ -102,7 +132,9 @@ const PackageDetails = () => {
           )}
           <br />
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" variant="contained" className="button">
+            Submit
+          </Button>
         </form>
       </Grid>
       {/* this line is for side space of the page  */}

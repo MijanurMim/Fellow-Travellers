@@ -1,4 +1,3 @@
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import {
   AppBar,
   Avatar,
@@ -41,10 +40,7 @@ const Header = () => {
             <Grid container sx={{ py: "10px" }}>
               {/* Appbar Name and logo  */}
               <Grid item xs={12} md={2}>
-                <Typography variant="h4">
-                  <DashboardIcon />
-                  BDNHC
-                </Typography>
+                <Typography variant="h4">Fellow Travellers</Typography>
               </Grid>
 
               {/* appbar routing area  */}

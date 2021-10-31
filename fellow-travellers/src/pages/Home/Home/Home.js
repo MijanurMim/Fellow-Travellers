@@ -3,6 +3,7 @@ import { Button, Grid } from "@mui/material";
 import React, { useState } from "react";
 import Packages from "../../Packages/Packages/Packages";
 import Banner from "../Banner/Banner";
+import Memories from "../Memories/Memories";
 import SearchResult from "../SearchResult/SearchResult";
 import WhyUs from "../WhyUs/WhyUs";
 import "./Home.css";
@@ -59,7 +60,10 @@ const Home = () => {
       </Grid>
       {/* Home packages  */}
       <Packages></Packages>
+      {/* Why US area  */}
       <WhyUs />
+      {/* Memories area  */}
+      <Memories></Memories>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Package from "../Package/Package";
 
@@ -33,7 +33,9 @@ const Packages = () => {
 
   return (
     <div>
-      <h1>Our Packages</h1>
+      <Typography variant="h3" color="primary" sx={{ mt: "80px" }}>
+        Our Packages
+      </Typography>
       <Grid item container xs={12} spacing={4}>
         {/* this line is for side space of the page  */}
         <Grid item xs={false} md={1}></Grid>

@@ -62,25 +62,16 @@ const Package = ({ pd, handleDelete }) => {
         </CardActionArea>
         <CardActions className={classes.cardButton}>
           {/* dynamic routing for every service  */}
-
-          <Button onClick={() => handleDelete(pd._id)}>Delete</Button>
-          <Link to={`/packageDetails/${_id}`}>
-            <Button>Book {title.toLowerCase()} </Button>
+          <Link to={`/packageDetails/${_id}`} className={classes.buttonText}>
+            <Button variant="outlined">Book {title.toLowerCase()} </Button>
           </Link>
+
+          <Button onClick={() => handleDelete(pd._id)} variant="contained">
+            Delete
+          </Button>
         </CardActions>
       </Card>
     </Grid>
-
-    // <div>
-    //   <h1>{title}</h1>
-    //   <h3>{_id}</h3>
-    //   <h4>{date}</h4>
-
-    //   <Button onClick={() => handleDelete(pd._id)}>Delete</Button>
-    //   <Link to={`/packageDetails/${_id}`}>
-    //     <Button>Book {title.toLowerCase()} </Button>
-    //   </Link>
-    // </div>
   );
 };
 

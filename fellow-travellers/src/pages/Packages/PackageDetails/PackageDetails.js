@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
 
 const PackageDetails = () => {
@@ -27,7 +28,7 @@ const PackageDetails = () => {
     fetch(`http://localhost:5000/packageDetails/${packageId}`)
       .then((res) => res.json())
       .then((data) => setPackageDetail(data));
-  }, []);
+  });
   return (
     <div>
       <div>
@@ -37,25 +38,35 @@ const PackageDetails = () => {
       <div>
         <h1>Please Recheck if You are sure then Click Five times to Confirm</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            {...register("title", { required: true })}
-            defaultValue={packageDetail.title}
-          />
+          {packageDetail.title && (
+            <input
+              {...register("title", { required: true })}
+              defaultValue={packageDetail.title}
+            />
+          )}
 
-          <input
-            {...register("date", { required: true })}
-            defaultValue={packageDetail.date}
-          />
-          <input
-            {...register("description", { required: true })}
-            defaultValue={packageDetail.description}
-          />
-          <input
-            {...register("packageType", { required: true })}
-            defaultValue={packageDetail.packageType}
-          />
+          {packageDetail.date && (
+            <input
+              {...register("date", { required: true })}
+              defaultValue={packageDetail.date}
+            />
+          )}
+          {packageDetail.description && (
+            <input
+              {...register("description", { required: true })}
+              defaultValue={packageDetail.description}
+            />
+          )}
+          {packageDetail.packageType && (
+            <input
+              {...register("packageType", { required: true })}
+              defaultValue={packageDetail.packageType}
+            />
+          )}
 
-          <Button type="submit">Submit</Button>
+          <Link to="/myBookings">
+            <Button type="submit">Submit</Button>
+          </Link>
         </form>
       </div>
     </div>

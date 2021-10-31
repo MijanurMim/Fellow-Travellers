@@ -5,7 +5,6 @@ import AddMember from "./pages/AddMember/AddMember";
 import AddPackages from "./pages/AddPackages/AddPackages";
 import AdminDashboard from "./pages/Admin/AdminDashboard/AdminDashboard";
 import Home from "./pages/Home/Home/Home";
-import Reviews from "./pages/Home/Reviews/Reviews";
 import Login from "./pages/Login/Login/Login";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import MyBookings from "./pages/MyBookings/MyBookings";
@@ -33,28 +32,25 @@ function App() {
             <Route exact path="/packages">
               <Packages></Packages>
             </Route>
-            <Route exact path="/addPackages">
+            <PrivateRoute exact path="/addPackages">
               <AddPackages></AddPackages>
-            </Route>
-            <Route exact path="/packageDetails/:packageId">
+            </PrivateRoute>
+            <PrivateRoute exact path="/packageDetails/:packageId">
               <PackageDetails></PackageDetails>
-            </Route>
-            <Route exact path="/reviews">
-              <Reviews></Reviews>
-            </Route>
+            </PrivateRoute>
 
-            <Route exact path="/addMember">
+            <PrivateRoute exact path="/addMember">
               <AddMember></AddMember>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute exact path="/myBookings">
               <MyBookings></MyBookings>
             </PrivateRoute>
             <PrivateRoute exact path="/totalBookings">
               <TotalBookings></TotalBookings>
             </PrivateRoute>
-            <Route exact path="/admin">
+            <PrivateRoute exact path="/admin">
               <AdminDashboard></AdminDashboard>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/login">
               <Login></Login>
             </Route>

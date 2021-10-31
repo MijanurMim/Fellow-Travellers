@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Packages from "../../Packages/Packages/Packages";
 import Banner from "../Banner/Banner";
 import HomeServices from "../HomeServices/HomeServices";
-import Reviews from "../Reviews/Reviews";
 import WhyUs from "../WhyUs/WhyUs";
 
 const Home = () => {
@@ -42,7 +41,7 @@ const Home = () => {
 
       <HomeServices></HomeServices>
       <WhyUs />
-      <Reviews></Reviews>
+
       <Packages></Packages>
     </div>
   );

@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -6,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import React from "react";
 
-const TotalBooking = ({ pd }) => {
+const TotalBooking = ({ pd, handleUpdate, handleDelete }) => {
   const { title, date, status, email } = pd;
   return (
     <TableContainer component={Paper} className="table">
@@ -32,7 +33,14 @@ const TotalBooking = ({ pd }) => {
             <TableCell align="right">{email}</TableCell>
             <TableCell align="right">{date}</TableCell>
             <TableCell align="right">{status}</TableCell>
-            <TableCell align="right"></TableCell>
+            <TableCell align="right">
+              <Button onClick={() => handleUpdate(pd._id)} variant="contained">
+                Confirm
+              </Button>
+              <Button onClick={() => handleDelete(pd._id)} variant="contained">
+                Delete
+              </Button>
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>

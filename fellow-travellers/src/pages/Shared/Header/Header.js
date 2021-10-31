@@ -1,11 +1,18 @@
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import { AppBar, Button, Grid, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Avatar,
+  Button,
+  Grid,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-
+import "./Header.css";
 // / custom css
 const useStyles = makeStyles(() => ({
   headerOption: {
@@ -25,6 +32,7 @@ const useStyles = makeStyles(() => ({
 const Header = () => {
   const classes = useStyles();
   const { user, logOut } = useAuth();
+
   return (
     <Grid container>
       <Box sx={{ flexGrow: 1 }}>
@@ -89,21 +97,26 @@ const Header = () => {
               </Grid>
 
               {/* appbar login area  */}
-              <Grid item xs={12} md={2}>
+              <Grid item container xs={12} md={2}>
                 {/* show user name dynamicly  */}
-                <Typography>{user?.email}</Typography>
-                {/* login button and logout  */}
-                {user?.email ? (
-                  <Button onClick={logOut} variant="contained" sx={{ mx: 2 }}>
-                    logout
-                  </Button>
-                ) : (
-                  <Link to="/login" className={classes.link}>
-                    <Button variant="contained" sx={{ mx: 2 }}>
-                      login
+                <div className="userInfo">
+                  <Avatar>
+                    <img src={user?.photoURL} alt="" />
+                  </Avatar>
+                  <Typography>{user?.displayName}</Typography>
+                  {/* login button and logout  */}
+                  {user?.email ? (
+                    <Button onClick={logOut} variant="contained" sx={{ mx: 2 }}>
+                      logout
                     </Button>
-                  </Link>
-                )}
+                  ) : (
+                    <Link to="/login" className={classes.link}>
+                      <Button variant="contained" sx={{ mx: 2 }}>
+                        login
+                      </Button>
+                    </Link>
+                  )}
+                </div>
               </Grid>
             </Grid>
           </Toolbar>
